@@ -40,6 +40,6 @@ ctfhub{...}
 
 ## 截图
 
-![请求方式](../imgs/lab5_http_method.png)
+![请求方式](https://raw.githubusercontent.com/liukuoming/IntroToCybersecurityTools/lab5-submit/2026010030%E5%88%98%E9%98%94%E5%90%8D/Lab5/imgs/lab5_http_method.png)
 
 > 可以在这份 WP 中另加过程截图；检查时只看指定图片，额外图片不检查。

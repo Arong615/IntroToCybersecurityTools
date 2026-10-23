@@ -38,6 +38,6 @@ phpinfo 页面属于 **响应体** 信息泄露。它会无差别地输出 PHP �
 
 ## 截图
 
-![PHPINFO](../imgs/lab5_phpinfo.png)
+![PHPINFO](https://raw.githubusercontent.com/liukuoming/IntroToCybersecurityTools/lab5-submit/2026010030%E5%88%98%E9%98%94%E5%90%8D/Lab5/imgs/lab5_phpinfo.png)
 
 > 可以在这份 WP 中另加过程截图；检查时只看指定图片，额外图片不检查。
