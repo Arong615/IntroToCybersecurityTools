@@ -252,6 +252,6 @@ assignments:
       - lab5_http_method.png 应能看出请求方法被修改（不是普通 GET 首页访问）以及服务器返回的 flag 或成功结果；Burp Repeater 的请求行、curl -X 的命令与输出、或等价的请求重放界面均可接受；只有浏览器最终页面、没有方法证据的，不算完成。
       - lab5_redirect_302.png 应能看出 302 状态码或 Location 响应头，以及最终 flag 或成功结果；DevTools Network、Burp 响应、curl -i 输出均可接受；只有最终页面、没有 302 证据的，不算完成。
       - lab5_cookie.png 应能看出 Cookie 请求头被修改以及服务器返回的 flag 或成功结果；DevTools、Burp、curl -b 均可接受；只有登录页面或最终页面、没有 Cookie 修改证据的，不算完成。
-      - lab5_basic_auth.png 应能看出 Authorization: Basic 请求头或 Basic 认证过程，以及认证成功后的 flag 或页面；Burp、curl -u、浏览器认证弹窗均可接受；只有最终页面、没有认证证据的，不算完成。
+      - lab5_basic_auth.png 应能看出 Authorization：Basic 请求头或 Basic 认证过程，以及认证成功后的 flag 或页面；Burp、curl -u、浏览器认证弹窗均可接受；只有最终页面、没有认证证据的，不算完成。
       - 6 张截图应来自学生本人操作，能看出 CTFHub 题目环境或题目名称；允许使用 Windows 截图工具截取的 Kali 虚拟机窗口、Kali 桌面截图、浏览器截图或 Burp 窗口截图，不要求显示完整地址栏。出现手机拍屏反光、摩尔纹、明显倾斜或关键文字无法辨认时判为不合格；普通截图缩放、窗口遮挡、界面语言不同不影响完成。
       - 截图中的 flag 可以是 ctfhub{...} 原文，也可以是平台提交成功的明确提示；报告中的 flag 应与截图或题目对应。CTFHub 页面改版、题目名称略有差异、靶场地址端口不同均属正常，不因此判不合格。
