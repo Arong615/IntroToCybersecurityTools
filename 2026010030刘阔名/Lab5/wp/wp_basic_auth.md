@@ -12,7 +12,7 @@
 | 项目 | 内容 |
 | --- | --- |
 | 环境地址 | http://challenge-<hash>.sandbox.ctfhub.com:10800/（每次开启题目分配不同子域名） |
-| Flag | ctfhub{example_flag_placeholder} |
+| Flag | ctfhub{e5b1c740a3f7c219} |
 
 ## 解题过程
 

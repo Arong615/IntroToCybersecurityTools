@@ -12,7 +12,7 @@
 | 项目 | 内容 |
 | --- | --- |
 | 环境地址 | http://challenge-<hash>.sandbox.ctfhub.com:10800/phpinfo.php（每次开启题目分配不同子域名） |
-| Flag | ctfhub{example_flag_placeholder} |
+| Flag | ctfhub{4d8e0b6271b9f3c5} |
 
 ## 解题过程
 

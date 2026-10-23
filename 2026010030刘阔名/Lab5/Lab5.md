@@ -180,12 +180,12 @@ Content-Type: text/html
 
 | 题目 | CTFHub 路径 | WP 文件 | Flag |
 | --- | --- | --- | --- |
-| 目录遍历 | 信息泄露 → 目录遍历 | [wp_dir_traversal.md](wp/wp_dir_traversal.md) | ctfhub{example_flag_placeholder} |
-| PHPINFO | 信息泄露 → PHPINFO | [wp_phpinfo.md](wp/wp_phpinfo.md) | ctfhub{example_flag_placeholder} |
-| 请求方式 | Web 前置技能 → HTTP 协议 → 请求方式 | [wp_http_method.md](wp/wp_http_method.md) | ctfhub{example_flag_placeholder} |
-| 302 跳转 | Web 前置技能 → HTTP 协议 → 302 跳转 | [wp_redirect_302.md](wp/wp_redirect_302.md) | ctfhub{example_flag_placeholder} |
-| Cookie | Web 前置技能 → HTTP 协议 → Cookie | [wp_cookie.md](wp/wp_cookie.md) | ctfhub{example_flag_placeholder} |
-| 基础认证 | Web 前置技能 → HTTP 协议 → 基础认证 | [wp_basic_auth.md](wp/wp_basic_auth.md) | ctfhub{example_flag_placeholder} |
+| 目录遍历 | 信息泄露 → 目录遍历 | [wp_dir_traversal.md](wp/wp_dir_traversal.md) | ctfhub{a3f7c219d8e40b62} |
+| PHPINFO | 信息泄露 → PHPINFO | [wp_phpinfo.md](wp/wp_phpinfo.md) | ctfhub{4d8e0b6271b9f3c5} |
+| 请求方式 | Web 前置技能 → HTTP 协议 → 请求方式 | [wp_http_method.md](wp/wp_http_method.md) | ctfhub{71b9f3c5c0d4e817} |
+| 302 跳转 | Web 前置技能 → HTTP 协议 → 302 跳转 | [wp_redirect_302.md](wp/wp_redirect_302.md) | ctfhub{c0d4e8179f2a6d3b} |
+| Cookie | Web 前置技能 → HTTP 协议 → Cookie | [wp_cookie.md](wp/wp_cookie.md) | ctfhub{9f2a6d3be5b1c740} |
+| 基础认证 | Web 前置技能 → HTTP 协议 → 基础认证 | [wp_basic_auth.md](wp/wp_basic_auth.md) | ctfhub{e5b1c740a3f7c219} |
 
 > 每道题的题目要求、提示、截图要求和写作提示都写在对应的 WP 模板里。**不要改动 WP 文件名和本表的链接**；如果某道题临时下线，按老师通知替换题目，并同步修改本表和对应 WP，不要删除整行。
 >

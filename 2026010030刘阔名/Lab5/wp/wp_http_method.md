@@ -12,7 +12,7 @@
 | 项目 | 内容 |
 | --- | --- |
 | 环境地址 | http://challenge-54a530f5236d0194.sandbox.ctfhub.com:10800/ |
-| Flag | ctfhub{example_flag_placeholder} |
+| Flag | ctfhub{71b9f3c5c0d4e817} |
 
 ## 解题过程
 
