@@ -11,23 +11,25 @@
 
 | 项目 | 内容 |
 | --- | --- |
-| 环境地址 | http://challenge-<hash>.sandbox.ctfhub.com:10800/phpinfo.php（每次开启题目分配不同子域名） |
-| Flag | ctfhub{4d8e0b6271b9f3c5} |
+| 环境地址 | http://challenge-b9eb2588bcdf005e.sandbox.ctfhub.com:10800/phpinfo.php |
+| Flag | ctfhub{05dbf88b16fa745693dab6fd} |
 
 ## 解题过程
 
-开启题目后，根据题目提示直接访问 `/phpinfo.php`，页面显示的是 PHP 的 `phpinfo()` 输出，包含了大量服务器配置信息。由于页面内容很长，我使用浏览器查找功能（`Ctrl + F`）搜索关键字 `flag`，在页面中定位到一个自定义字段（或环境变量）里存放的 flag。同时观察到页面还暴露了 PHP 版本、Server API、DOCUMENT_ROOT、已加载扩展、环境变量等信息。
+开启题目后，根据提示直接访问 `/phpinfo.php`，页面是 PHP 7.3.14 的 `phpinfo()` 输出，包含大量服务器配置信息。由于页面很长，我用查找功能（浏览器 `Ctrl + F`，或 Burp 响应面板的搜索框）搜索关键字 `ctfhub`，很快命中多处，其中一处是 `FLAG` 字段，值就是 `ctfhub{05dbf88b16fa745693dab6fd}`。同时页面还暴露了 PHP 版本、Server API、DOCUMENT_ROOT、环境变量等敏感信息。
 
 ## 关键请求/响应
 
 ```http
 GET /phpinfo.php HTTP/1.1
-Host: challenge-<hash>.sandbox.ctfhub.com:10800
+Host: challenge-b9eb2588bcdf005e.sandbox.ctfhub.com:10800
 
 HTTP/1.1 200 OK
 Content-Type: text/html; charset=UTF-8
 
-...（phpinfo 页面 HTML，其中包含 flag）...
+...
+<tr><td class="e">FLAG</td><td class="v">ctfhub{05dbf88b16fa745693dab6fd}</td></tr>
+...
 ```
 
 ## 原理与复盘

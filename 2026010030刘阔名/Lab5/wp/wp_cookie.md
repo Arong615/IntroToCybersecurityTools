@@ -11,24 +11,24 @@
 
 | 项目 | 内容 |
 | --- | --- |
-| 环境地址 | http://challenge-<hash>.sandbox.ctfhub.com:10800/（每次开启题目分配不同子域名） |
-| Flag | ctfhub{9f2a6d3be5b1c740} |
+| 环境地址 | http://challenge-b9f4c3fa69af689d.sandbox.ctfhub.com:10800/ |
+| Flag | ctfhub{6f48b9706574da4243063d7b} |
 
 ## 解题过程
 
-打开靶场首页后，页面提示“只有 admin 才能看到 flag”或类似信息。我按 `F12` 打开浏览器 DevTools，切换到 Application/Storage → Cookies 面板，看到当前域名下有一个名为 `admin` 的 Cookie，值为 `0`（或 `guest`）。把它的值改成 `1` 后刷新页面，页面内容发生变化，直接显示出了 flag。也可以用 Burp 拦截请求，在请求头里手动修改 `Cookie: admin=1` 后重放，同样能得到 flag。
+打开靶场首页后，页面提示只有 `admin` 才能看到 flag。我按 `F12` 打开浏览器 DevTools，切换到 Application/Storage → Cookies，看到当前域名下有一个名为 `admin` 的 Cookie，值是 `0`。把它的值改成 `1` 后刷新页面，页面内容发生变化，直接显示出了 flag。为了留下可复查的证据，我又把请求发到 Burp Repeater，在请求头里加上 `Cookie: admin=1` 重放，服务器返回 `200 OK`，响应体中就是同一个 flag。
 
 ## 关键请求/响应
 
 ```http
 GET / HTTP/1.1
-Host: challenge-<hash>.sandbox.ctfhub.com:10800
+Host: challenge-b9f4c3fa69af689d.sandbox.ctfhub.com:10800
 Cookie: admin=1
 
 HTTP/1.1 200 OK
 Content-Type: text/html; charset=UTF-8
 
-ctfhub{...}
+ctfhub{6f48b9706574da4243063d7b}
 ```
 
 ## 原理与复盘

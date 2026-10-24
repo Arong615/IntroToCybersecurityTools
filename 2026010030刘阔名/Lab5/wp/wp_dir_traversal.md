@@ -11,26 +11,26 @@
 
 | 项目 | 内容 |
 | --- | --- |
-| 环境地址 | http://challenge-<hash>.sandbox.ctfhub.com:10800/（每次开启题目分配不同子域名） |
-| Flag | ctfhub{a3f7c219d8e40b62} |
+| 环境地址 | http://challenge-ab9f8f67a4237f67.sandbox.ctfhub.com:10800/ |
+| Flag | ctfhub{7484b70b91c3da865496cce4} |
 
 ## 解题过程
 
-开启题目后访问靶场首页，页面是一个 Nginx/Apache 的目录索引（autoindex），列出多个以数字命名的文件夹（如 1/、2/、3/…）。按题目“目录遍历”的提示，我逐个点进这些目录，发现目录嵌套层数很深，每一层继续列出子目录。一直深入到最底层后，看到一个名为 `flag.txt`（或类似文件名）的文件，点击打开后得到 flag。整个过程不需要猜测文件名，只要顺着目录列表一层层点下去即可。
+开启题目后访问靶场首页 `/flag_in_here/`，页面是目录索引（autoindex），列出若干以数字命名的子目录。按「目录遍历」的思路，我顺着目录一层层往下点；由于目录层级较深、组合较多，为了更快定位，我也用 Burp Intruder 对目录名做了数字字典爆破，通过响应长度差异区分命中的目录列表页和 404。最终定位到 `/flag_in_here/3/4/` 目录，里面有一个 `flag.txt`，在浏览器打开 `http://challenge-ab9f8f67a4237f67.sandbox.ctfhub.com:10800/flag_in_here/3/4/flag.txt`，页面直接显示出了 flag。
 
 ## 关键请求/响应
 
 ```http
-GET /1/2/3/4/flag.txt HTTP/1.1
-Host: challenge-<hash>.sandbox.ctfhub.com:10800
+GET /flag_in_here/3/4/flag.txt HTTP/1.1
+Host: challenge-ab9f8f67a4237f67.sandbox.ctfhub.com:10800
 
 HTTP/1.1 200 OK
 Content-Type: text/plain
 
-ctfhub{...}
+ctfhub{7484b70b91c3da865496cce4}
 ```
 
-（实际路径层级以靶场显示为准，本题不需要修改请求头或请求方法。）
+（目录路径为 `/flag_in_here/3/4/flag.txt`；本题不需要修改请求头或请求方法，关键是顺着目录索引逐层遍历。）
 
 ## 原理与复盘
 

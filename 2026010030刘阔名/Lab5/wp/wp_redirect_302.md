@@ -11,32 +11,32 @@
 
 | 项目 | 内容 |
 | --- | --- |
-| 环境地址 | http://challenge-<hash>.sandbox.ctfhub.com:10800/（每次开启题目分配不同子域名） |
-| Flag | ctfhub{c0d4e8179f2a6d3b} |
+| 环境地址 | http://challenge-91921174854df8a1.sandbox.ctfhub.com:10800/ |
+| Flag | ctfhub{468ff017654153f7eaef5f74} |
 
 ## 解题过程
 
-第一次用浏览器访问靶场首页时，地址栏瞬间跳到了另一个页面，看起来像是直接打开了新内容。为了看到跳转前的真实响应，我打开浏览器 DevTools 的 Network 面板并勾选 Preserve log，然后重新刷新页面。发现第一个请求的响应状态码是 302 Found，响应头里包含 `Location: /index.php?url=...`（或类似路径）。浏览器自动跟随这个 Location 跳转后，在新的 200 响应页面中找到了 flag。
+打开题目后，浏览器访问 `/index.html`，页面只显示「No Flag here!」和一个「Give me Flag」链接，没有 flag。点击「Give me Flag」时页面会请求 `/index.php`，但浏览器立刻又跳回 `index.html`，看起来什么都没发生。为了看清跳转前的真实响应，我打开 Burp 的 Proxy → HTTP history，找到那条 `GET /index.php` 请求：状态码是 `302 Moved Temporarily`，响应头里有 `Location: /index.html`，而 302 的响应体里正是 flag。浏览器会自动跟随 Location，把这段 302 响应连同响应体隐藏掉了，所以只盯最终页面永远看不到 flag，必须看原始报文。
 
 ## 关键请求/响应
 
 ```http
-GET / HTTP/1.1
-Host: challenge-<hash>.sandbox.ctfhub.com:10800
+GET /index.php HTTP/1.1
+Host: challenge-91921174854df8a1.sandbox.ctfhub.com:10800
 
-HTTP/1.1 302 Found
-Location: /index.php?url=...
-```
-
-随后浏览器自动发送：
-
-```http
-GET /index.php?url=... HTTP/1.1
-
-HTTP/1.1 200 OK
+HTTP/1.1 302 Moved Temporarily
+Server: openresty/1.21.4.2
+Date: Sat, 24 Oct 2026 02:17:44 GMT
 Content-Type: text/html; charset=UTF-8
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40
+Location: /index.html
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: X-Requested-With
+Access-Control-Allow-Methods: *
+Content-Length: 33
 
-...flag...
+ctfhub{468ff017654153f7eaef5f74}
 ```
 
 ## 原理与复盘
