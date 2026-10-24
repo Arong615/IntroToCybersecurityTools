@@ -201,3 +201,57 @@ assignments:
       - lab4_typingclub_233.png 只要能辨认 TypingClub 关卡页面中编号 233 的关卡，且该关卡卡片上能看到至少一颗已获得的星星（点亮或部分点亮均可）即算完成；不要求完整卡片或保留周围区域，不要求满星，也不核对其他关卡；界面改版、显示语言、缩放比例与清晰度差异均不判不合格；仅当看不到编号 233、该关没有任何已获得的星星或截图与 TypingClub 无关时判不合格。
       - lab4_email.png 只要能显示一封与本次作业对应的邮件并同时能看到主题、正文和附件标记（附件名称、附件图标或回形针标记任一项均可）即算完成；已发送列表、邮件详情页或收件箱中的同一封邮件均可；邮箱客户端与界面样式不限；主题为 Lab4-学号-姓名，仅大小写、空格或连字符等微小差异均正常；收件人以及正文中隐私相关的局部内容打码不影响完成；不因截图范围或清晰度差异判不合格；仅当看不到主题或正文、完全没有附件标记、明显不是本人邮件（如网络图片）或主题与正文出现明显违规违法内容、账号密码等敏感隐私时判不合格。
       - 四张截图接受桌面截图、浏览器截取、全屏截图等任何形式；存在轻微反光、摩尔纹、倾斜、模糊或压缩痕迹但关键信息（Bing 页面、三款软件名称、编号 233 与星标、邮件主题正文附件）仍可辨认时不得判不合格，也不因疑似拍屏本身拒绝；画面中出现与作业无关的通知、窗口、水印或打码内容均不影响完成；只有关键信息无法确认时才按不合格处理，其余任何情况一律按完成处理。
+  Lab5:
+    enabled: true
+    deadline: "2026-10-31T00:00:00+08:00"
+    # 行数与字符数量由 template_metrics 检查，与 Lab2、Lab3、Lab4 相同口径
+    min_nonempty_lines: 0
+    # WP 中允许多放过程截图；required_files 仍必须齐全，额外图片不检查。
+    allow_extra_files: true
+    report_template: homework/Lab5/Lab5.md
+    required_files:
+      - Lab5.md
+      - wp/wp_dir_traversal.md
+      - wp/wp_phpinfo.md
+      - wp/wp_http_method.md
+      - wp/wp_redirect_302.md
+      - wp/wp_cookie.md
+      - wp/wp_basic_auth.md
+      - imgs/lab5_dir_traversal.png
+      - imgs/lab5_phpinfo.png
+      - imgs/lab5_http_method.png
+      - imgs/lab5_redirect_302.png
+      - imgs/lab5_cookie.png
+      - imgs/lab5_basic_auth.png
+    template_metrics:
+      enabled: true
+      report_file: Lab5.md
+      characters: ['#', '-', '*', '`', '|', '>']
+      max_file_bytes: 200000
+    vision_files:
+      - imgs/lab5_dir_traversal.png
+      - imgs/lab5_phpinfo.png
+      - imgs/lab5_http_method.png
+      - imgs/lab5_redirect_302.png
+      - imgs/lab5_cookie.png
+      - imgs/lab5_basic_auth.png
+    review_points:
+      - Lab5.md 和 6 份 WP 必须完整保留老师发布的模板，只能替换模板中标出的填写/写作提示（如“（填写）”“（粘贴…）”“（写清楚…）”），并可在 WP 中按需增加过程截图；不得删除、改写或调整其他标题、说明、题目、表格、指定图片引用和小节。Lab5.md 的总行数、非空行数和六类 Markdown 字符数量由程序检查；WP 文件的结构由文本审核检查；数量达标不能代替实际内容审核。
+      - Lab5.md 第四节的必做题总表 6 行必须填写完整：WP 链接不能改动，Flag 列应为完整的 ctfhub{...} 形式，不能留空或保留“（填写）”；第五节知识地图 6 行和 5.1 总结必须填写；选做题表格填“完成”或“未做”均可。
+      - 6 份 WP 必须按 wp_dir_traversal.md、wp_phpinfo.md、wp_http_method.md、wp_redirect_302.md、wp_cookie.md、wp_basic_auth.md 的文件名完整提交，每份都要有“题目信息、解题过程、关键请求/响应、原理与复盘”四部分和对应的截图引用；文件名或目录名大小写错误、缺少任意一份 WP，都按未完成处理。
+      - 每份 WP 的题目信息表必须填写环境地址和 Flag，不能留空或保留“（填写）”；环境地址应为 http 或 https 的 CTFHub 靶场地址，不能是 file、localhost、127.0.0.1 或纯文本“已开启”。解题过程至少 3—5 句，能看出“看到什么—做了什么—结果是什么”；关键请求/响应要粘贴真实内容，或在确实不需要改请求的题目（目录遍历、PHPINFO）写“本题不需要修改请求”；原理与复盘至少 2—3 句。表述简短、口语化、步骤不够详细均不判不合格。
+      - 4.3 请求方式 WP 的关键请求/响应必须能看到修改后的请求行和方法；只有浏览器普通 GET、没有方法修改证据的不算完成。4.4 302 跳转 WP 和截图必须有 302 状态码或 Location 证据；4.5 Cookie WP 和截图必须有修改后的 Cookie 请求头；4.6 基础认证 WP 和截图必须有 Authorization 或 Basic 认证证据。其他题允许使用浏览器 DevTools、curl 或 Burp。
+      - 文本审核不要求联网验证 flag 是否真实正确，也不要求访问 CTFHub 靶场；flag 形式、过程描述和截图由图片阶段综合核对。CTFHub 题目名称、界面或技能树位置改版时，不因与模板文字略有差异判不合格。只有 WP 整篇为空、只有 flag 或占位提示、或者明显整段照抄网络 writeup 且没有任何自己的操作描述时，才按不合格处理。
+      - 本次必须提交 Lab5.md、6 份 WP 和 6 张指定截图这 13 个文件；允许 WP 中多放过程截图（例如多步操作、多个 payload、失败尝试），额外图片不列入检查，也不因额外图片判不合格；6 张指定截图仍必须齐全并按要求检查。不要求提交 Burp 工程、pcap、脚本、工具、压缩包等无关文件。
+      - 报告中不得出现 CTFHub 账号密码、平台登录 Cookie、身份证号等敏感信息；flag 和题目靶场地址可以写。若截图中意外出现平台登录 Cookie，应打码或重新截图，不能因此直接判不合格。
+      - CTFHub、curl、Burp 应在 Kali 中操作；报告和 Git/PR 在 Windows 上完成。截图可以用 Windows 截图工具截取 Kali 窗口，也可以在 Kali 中截图后传到 Windows；截图内容必须来自 Kali 中的题目画面。不要求检查学生实际使用了哪个操作系统，但截图中不应出现明显在 Windows 浏览器里重新做题、用手机拍屏或网络图片冒充的情况。
+    vision_review_points:
+      - 图片审核按较宽口径执行：只核对每张截图是否具备本题的最低完成标志，对清晰度、分辨率、图片大小、排版、窗口大小与位置、界面语言与主题、浏览器与 Burp 版本差异、截图范围和裁剪程度等细节不作要求；不得以美观、完整度或与教师示例不一致为由判不合格；存在疑点或拿不准时按完成处理。
+      - lab5_dir_traversal.png 应能看出题目环境中的目录/路径访问和 flag，或能看出目录列表与最终 flag 的对应关系；接受浏览器地址栏、目录列表、文件内容和 Burp/curl 响应等任意形式；不要求特定的目录名或点击顺序。
+      - lab5_phpinfo.png 应能看出 phpinfo 页面和 flag，或能看出在 phpinfo 页面中定位 flag 的过程；接受浏览器查找高亮、页面截图和终端 curl 输出；不要求页面中的所有配置项都清晰。
+      - lab5_http_method.png 应能看出请求方法被修改（不是普通 GET 首页访问）以及服务器返回的 flag 或成功结果；Burp Repeater 的请求行、curl -X 的命令与输出、或等价的请求重放界面均可接受；只有浏览器最终页面、没有方法证据的，不算完成。
+      - lab5_redirect_302.png 应能看出 302 状态码或 Location 响应头，以及最终 flag 或成功结果；DevTools Network、Burp 响应、curl -i 输出均可接受；只有最终页面、没有 302 证据的，不算完成。
+      - lab5_cookie.png 应能看出 Cookie 请求头被修改以及服务器返回的 flag 或成功结果；DevTools、Burp、curl -b 均可接受；只有登录页面或最终页面、没有 Cookie 修改证据的，不算完成。
+      - lab5_basic_auth.png 应能看出 Authorization: Basic 请求头或 Basic 认证过程，以及认证成功后的 flag 或页面；Burp、curl -u、浏览器认证弹窗均可接受；只有最终页面、没有认证证据的，不算完成。
+      - 6 张截图应来自学生本人操作，能看出 CTFHub 题目环境或题目名称；允许使用 Windows 截图工具截取的 Kali 虚拟机窗口、Kali 桌面截图、浏览器截图或 Burp 窗口截图，不要求显示完整地址栏。出现手机拍屏反光、摩尔纹、明显倾斜或关键文字无法辨认时判为不合格；普通截图缩放、窗口遮挡、界面语言不同不影响完成。
+      - 截图中的 flag 可以是 ctfhub{...} 原文，也可以是平台提交成功的明确提示；报告中的 flag 应与截图或题目对应。CTFHub 页面改版、题目名称略有差异、靶场地址端口不同均属正常，不因此判不合格。
